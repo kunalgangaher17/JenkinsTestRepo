@@ -10,5 +10,12 @@ pipeline {
                 }
             }
         }
+        stage('Validate') {
+            steps {
+                script {
+                
+                }
+            }
+        }
     }
 }
