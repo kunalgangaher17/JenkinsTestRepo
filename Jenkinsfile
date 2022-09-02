@@ -24,5 +24,13 @@ pipeline {
                 }
             }
         }
+        stage('ExportSnapshot'){
+            steps{
+                script {
+                snDevOpsConfigExport(applicationName: "JenkinsStepTestAppKunal", deployableName: "PRD", exporterFormat:"json", exporterName:"keka-returnValueForUniqueKeyName
+",fileName:"exporterFile.json")
+                }
+            }
+        }
     }
 }
