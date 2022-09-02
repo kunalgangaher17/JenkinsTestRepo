@@ -24,5 +24,12 @@ pipeline {
                 }
             }
         }
+        stage('GetSnapshot') {
+            steps {
+                script {
+                    snDevOpsConfigGetSnapshots(applicationName: "JenkinsStepTestAppKunal",deployableName:"PRD", changesetNumber: null)
+                }
+            }
+        }
     }
 }
