@@ -27,7 +27,7 @@ pipeline {
         stage('ExportSnapshot'){
             steps{
                 script {
-                snDevOpsConfigExport(applicationName: "JenkinsStepTestAppKunal", deployableName: "PRD", exporterFormat:"json", exporterName:"keka-returnValueForUniqueKeyName",fileName:"exporterFile.json")
+                snDevOpsConfigExport(applicationName: "JenkinsStepTestAppKunal", deployableName: "PRD", exporterFormat:"json", exporterName:"keka-returnValueForUniqueKeyName",fileName:"exporterFile.json",snapshotName: "PRD-v1.dpl")
                 }
             }
         }
