@@ -17,5 +17,12 @@ pipeline {
                 }
             }
         }
+        stage('Publish') {
+            steps {
+                script {
+                    snDevOpsConfigPublish(applicationName: "JenkinsStepTestAppKunal",deployableName:"PRD",snapshotName: "PRD-v1.dpl")
+                }
+            }
+        }
     }
 }
