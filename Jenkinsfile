@@ -13,7 +13,7 @@ pipeline {
         stage('Validate') {
             steps {
                 script {
-                    snDevOpsConfigValidate(applicationName: "JenkinsStepTestAppKunal",deployableName:"PRD",snapshotName: "PRD-v1.dpl")
+                    snDevOpsConfigValidate(applicationName: "JenkinsStepTestAppKunal",deployableName:"TST-1",snapshotName: "TST-1-v1.dpl")
                 }
             }
         }
