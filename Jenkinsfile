@@ -16,7 +16,14 @@ pipeline {
                     snDevOpsConfigValidate(applicationName: "JenkinsStepTestAppKunal",deployableName:"TST-1",snapshotName: "TST-1-v1.dpl")
                 }
             }
-        }        
+        }
+        stage('Publish') {
+            steps {
+            script {
+                    snDevOpsConfigPublish(applicationName: "JenkinsStepTestAppKunal",deployableName:"PRD",snapshotName: "PRD-v2.dpl")
+                }
+            }
+        }
         stage('GetSnapshot') {
             steps {
                 script {
