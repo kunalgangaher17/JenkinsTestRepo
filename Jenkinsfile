@@ -5,7 +5,7 @@ pipeline {
         stage('GetSnapshot') {
             steps {
                 script {
-                    snDevOpsConfigGetSnapshots(applicationName: "JenkinsStepTestAppKunal", changesetNumber: "Chset-111")
+                    snDevOpsConfigGetSnapshots(applicationName: "JenkinsStepTestAppKunal1", changesetNumber: "Chset-11")
                 }
             }
         }
