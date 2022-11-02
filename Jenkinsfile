@@ -1,14 +1,7 @@
 def changeset = ''
 pipeline {
     agent any
-    stages {
-        stage('GetSnapshot') {
-            steps {
-                script {
-                    snDevOpsConfigGetSnapshots(applicationName: "JenkinsTestAppKunal1717", deployableName: "Production_1", changesetNumber: "Chset-9")
-                }
-            }
-        }
+    stages {        
         stage('Publish') {
             steps {
             script {
