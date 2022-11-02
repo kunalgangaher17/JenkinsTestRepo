@@ -2,10 +2,10 @@ def changeset = ''
 pipeline {
     agent any
     stages {        
-        stage('Validate') {
+        stage('GetSnapshot') {
             steps {
-            script {
-                    snDevOpsConfigValidate(applicationName: "JenkinsTestApp17", deployableName: "Production_1", snapshotName: "Production_1-v1.dpl")
+                script {
+                    snDevOpsConfigGetSnapshots(applicationName: "NodesValueComparatorApp", deployableName: "Production_1")
                 }
             }
         }
