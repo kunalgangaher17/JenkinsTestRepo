@@ -5,7 +5,7 @@ pipeline {
         stage('GetSnapshot') {
             steps {
                 script {
-                    snDevOpsConfigGetSnapshots(applicationName: "JenkinsTestApp", deployableName: "Production_1")
+                    snDevOpsConfigGetSnapshots(applicationName: "NodesValueComparatorApp", deployableName: "Production_1")
                 }
             }
         }
