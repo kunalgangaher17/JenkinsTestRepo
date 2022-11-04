@@ -9,5 +9,12 @@ pipeline {
                 }
             }
         }        
+         stage('GetSnapshot1') {
+            steps {
+                script {
+                    snDevOpsConfigGetSnapshots(applicationName: "NodesValueComparatorApp", deployableName: "Production_1", outputFormat: "xml")
+                }
+            }
+        }
     }
 }
