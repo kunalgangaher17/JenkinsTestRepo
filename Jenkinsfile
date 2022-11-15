@@ -10,4 +10,11 @@ pipeline {
             }
         }
     }
+    post{
+     always{        
+         echo ">>>>>Displaying Test results"
+          junit '**/*.xml'
+          cleanWs()
+     }
+}
 }
