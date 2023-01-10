@@ -13,7 +13,7 @@ pipeline {
         stage('Publish') {
             steps {
             script {
-                    snDevOpsConfigPublish(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v1.dpl")
+                    snDevOpsConfigPublish(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v2.dpl")
                 }
             }
         }
