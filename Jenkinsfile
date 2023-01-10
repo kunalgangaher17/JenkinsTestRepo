@@ -13,7 +13,7 @@ pipeline {
         stage('Publish') {
             steps {
             script {
-                    snDevOpsConfigPublish(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v3.dpl")
+                    snDevOpsConfigPublish(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v1.dpl")
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('ExportSnapshot'){
             steps{
                 script {
-                snDevOpsConfigExport(applicationName: "JenkinsTelemetryApp", deployableName: "Production_1", exporterFormat:"json", exporterName:"returnAllData-now",fileName:"exporterFile.json",snapshotName: "Production_1-v3.dpl")
+                snDevOpsConfigExport(applicationName: "JenkinsTelemetryApp", deployableName: "Production_1", exporterFormat:"json", exporterName:"returnAllData-now",fileName:"exporterFile.json",snapshotName: "Production_1-v1.dpl")
                 }
             }
         }
