@@ -9,14 +9,7 @@ pipeline {
                     snDevOpsConfigUpload(applicationName: "JenkinsTelemetryApp",changesetNumber:"${changeset}",target:"deployable",dataFormat:"json",configFile:"configDepl.json",namePath:"Depl",deployableName:"Production_1",autoCommit: true,autoValidate: false)
                 }
             }
-        }
-        stage('Validate') {
-            steps {
-                script {
-                    snDevOpsConfigValidate(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v3.dpl")
-                }
-            }
-        }
+        }        
         stage('Publish') {
             steps {
             script {
