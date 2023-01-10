@@ -10,6 +10,13 @@ pipeline {
                 }
             }
         }        
+        stage('Validate') {
+            steps {
+                script {
+                    snDevOpsConfigValidate(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v3.dpl")
+                }
+            }
+        }
         stage('Publish') {
             steps {
             script {
