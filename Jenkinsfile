@@ -27,7 +27,7 @@ pipeline {
         stage('GetSnapshot') {
             steps {
                 script {
-                    snDevOpsConfigGetSnapshots(applicationName: "JenkinsTelemetryApp", changesetNumber: "Chset-27”, outputFormat: “xml/json”)
+                    snDevOpsConfigGetSnapshots(applicationName: "JenkinsTelemetryApp", changesetNumber: "Chset-27”, outputFormat: "xml/json")
                 }
             }
         }
