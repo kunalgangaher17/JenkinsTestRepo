@@ -5,7 +5,7 @@ pipeline {
          stage('GetSnapshot') {
             steps {
                 script {
-                    snDevOpsConfigGetSnapshots(applicationName: "Jenkins_test_app", deployableName: "Preprod", outputFormat: "xml")
+                    snDevOpsConfigGetSnapshots(applicationName: "PassedWithExceptionTest", deployableName: "Production_1", outputFormat: "xml")
                 }
             }
         }
