@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     changeset = snDevOpsConfigUpload(applicationName: "JenkinsTelemetryApp",target:"component",dataFormat:"json",configFile:"configComp.json",namePath:"Comp",autoCommit: false,autoValidate: true)
-                    snDevOpsConfigUpload(applicationName: "JenkinsTelemetryApp",changesetNumber:"${changeset}",target:"deployable",dataFormat:"json",configFile:"configDepl.json",namePath:"Depl",deployableName:"Production_1",autoCommit: true,autoValidate: false)
+                    snDevOpsConfigUpload(applicationName: "JenkinsTelemetryApp",changesetNumber:"${changeset}",target:"deployable",dataFormat:"json",configFile:"configDepl.json",namePath:"Depl",deployableName:"Production_1",autoCommit: true,autoValidate: true)
                 }
             }
         }        
