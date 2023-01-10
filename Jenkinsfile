@@ -13,7 +13,7 @@ pipeline {
         stage('Validate') {
             steps {
                 script {
-                    snDevOpsConfigValidate(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v3.dpl")
+                    snDevOpsConfigValidate(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v2.dpl")
                 }
             }
         }
