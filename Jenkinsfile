@@ -6,21 +6,21 @@ pipeline {
             steps {
                 script {
                     changeset = snDevOpsConfigUpload(applicationName: "JenkinsTelemetryApp",target:"component",dataFormat:"json",configFile:"configComp.json",namePath:"Comp",autoCommit: false,autoValidate: true)
-                    snDevOpsConfigUpload(applicationName: "JenkinsTelemetryApp",changesetNumber:"${changeset}",target:"deployable",dataFormat:"json",configFile:"configDepl.json",namePath:"Depl",deployableName:"Production_1",autoCommit: true,autoValidate: true)
+                    snDevOpsConfigUpload(applicationName: "JenkinsTelemetryApp",changesetNumber:"${changeset}",target:"deployable",dataFormat:"json",configFile:"configDepl.json",namePath:"Depl",deployableName:"Production_1",autoCommit: true,autoValidate: false)
                 }
             }
         }
         stage('Validate') {
             steps {
                 script {
-                    snDevOpsConfigValidate(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v1.dpl")
+                    snDevOpsConfigValidate(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v3.dpl")
                 }
             }
         }
         stage('Publish') {
             steps {
             script {
-                    snDevOpsConfigPublish(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v1.dpl")
+                    snDevOpsConfigPublish(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v3.dpl")
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
         stage('ExportSnapshot'){
             steps{
                 script {
-                snDevOpsConfigExport(applicationName: "JenkinsTelemetryApp", deployableName: "Production_1", exporterFormat:"json", exporterName:"returnAllData-now",fileName:"exporterFile.json",snapshotName: "Production_1-v1.dpl")
+                snDevOpsConfigExport(applicationName: "JenkinsTelemetryApp", deployableName: "Production_1", exporterFormat:"json", exporterName:"returnAllData-now",fileName:"exporterFile.json",snapshotName: "Production_1-v3.dpl")
                 }
             }
         }
