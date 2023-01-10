@@ -1,13 +1,42 @@
-def changeset = ''
+def changeset = 'Chset-27'
 pipeline {
     agent any
-    stages {                
-         stage('GetSnapshot') {
+    stages {
+        stage('Upload') {
             steps {
                 script {
-                    snDevOpsConfigGetSnapshots(applicationName: "PassedWithExceptionTest", deployableName: "Production_1", outputFormat: "xml")
+                    changeset = snDevOpsConfigUpload(applicationName: "JenkinsTelemetryApp",target:"component",dataFormat:"json",configFile:"configComp.json",namePath:"Comp",autoCommit: false,autoValidate: true)
+                    snDevOpsConfigUpload(applicationName: "JenkinsTelemetryApp",changesetNumber:"${changeset}",target:"deployable",dataFormat:"json",configFile:"configDepl.json",namePath:"Depl",deployableName:"PRD",autoCommit: true,autoValidate: true)
                 }
             }
         }
-}
+        stage('Validate') {
+            steps {
+                script {
+                    snDevOpsConfigValidate(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v1.dpl")
+                }
+            }
+        }
+        stage('Publish') {
+            steps {
+            script {
+                    snDevOpsConfigPublish(applicationName: "JenkinsTelemetryApp",deployableName:"Production_1",snapshotName: "Production_1-v1.dpl")
+                }
+            }
+        }
+        stage('GetSnapshot') {
+            steps {
+                script {
+                    snDevOpsConfigGetSnapshots(applicationName: "JenkinsTelemetryApp", changesetNumber: "Chset-27”, outputFormat: “xml/json”)
+                }
+            }
+        }
+        stage('ExportSnapshot'){
+            steps{
+                script {
+                snDevOpsConfigExport(applicationName: "JenkinsTelemetryApp", deployableName: "Production_1", exporterFormat:"json", exporterName:"returnAllData-now",fileName:"exporterFile.json",snapshotName: "Production_1-v1.dpl")
+                }
+            }
+        }
+    }
 }
